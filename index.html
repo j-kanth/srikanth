@@ -4,79 +4,219 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Srikanth | Portfolio</title>
+
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       font-family: 'Segoe UI', Tahoma, sans-serif;
-      background: #0f172a;
+      background: linear-gradient(135deg, #020617, #0f172a, #020617);
+      background-attachment: fixed;
       color: #e5e7eb;
       line-height: 1.6;
     }
+
+    /* ===== PREMIUM GLASS NAVBAR ===== */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: linear-gradient(
+        135deg,
+        rgba(56, 189, 248, 0.22),
+        rgba(2, 6, 23, 0.65)
+      );
+      backdrop-filter: blur(22px) saturate(160%);
+      -webkit-backdrop-filter: blur(22px) saturate(160%);
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      padding: 14px 0;
+      z-index: 10;
+      border-bottom: 1px solid rgba(56, 189, 248, 0.45);
+      box-shadow: 0 10px 35px rgba(56,189,248,0.25);
+    }
+
+    nav a {
+      color: #e0f2fe;
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: 0.4px;
+      padding: 6px 16px;
+      border-radius: 16px;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #020617;
+      background: rgba(56, 189, 248, 0.95);
+      box-shadow: 0 0 18px rgba(56,189,248,0.8);
+    }
+
+    /* ===== HERO ===== */
     header {
-      min-height: 85vh; /* reduced from 100vh */
+      min-height: 85vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      background: radial-gradient(circle at top, #1e293b, #020617);
+      background:
+        radial-gradient(circle at top, rgba(56,189,248,0.18), transparent 60%),
+        linear-gradient(180deg, #020617, #0f172a);
+      padding: 0 20px;
     }
-    header h1 { font-size: 48px; color: #38bdf8; }
-    header h2 { font-size: 22px; margin-top: 10px; }
-    header p { max-width: 600px; margin-top: 15px; color: #cbd5f5; }
-    nav {
-      position: fixed;
-      top: 0; width: 100%;
-      background: rgba(2,6,23,0.9);
-      display: flex;
-      justify-content: center;
-      gap: 25px;
-      padding: 12px 0;
-      z-index: 10;
+
+    header h1 {
+      font-size: 48px;
+      color: #38bdf8;
     }
-    nav a { color: #94a3b8; text-decoration: none; font-weight: 500; }
-    nav a:hover { color: #38bdf8; }
+
+    header h2 {
+      font-size: 22px;
+      margin-top: 10px;
+    }
+
+    header p {
+      max-width: 600px;
+      margin-top: 15px;
+      color: #cbd5f5;
+    }
+
+    a.btn {
+      display: inline-block;
+      margin-top: 22px;
+      padding: 12px 28px;
+      background: rgba(56, 189, 248, 0.9);
+      color: #020617;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 25px rgba(56,189,248,0.45);
+      transition: all 0.3s ease;
+    }
+
+    a.btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(56,189,248,0.65);
+    }
+
+    /* ===== SECTIONS ===== */
     section {
       max-width: 1000px;
       margin: auto;
-      padding: 50px 20px; /* reduced spacing between sections */
+      padding: 70px 20px;
     }
+
     section h2 {
       font-size: 28px;
-      margin-bottom: 18px; /* reduced heading gap */
+      margin-bottom: 22px;
       border-left: 4px solid #38bdf8;
       padding-left: 12px;
     }
-    .skills, .projects {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
+
+    /* ===== GLASS CARD ===== */
     .card {
-      background: #020617;
-      padding: 20px;
-      border-radius: 12px;
-      border: 1px solid #1e293b;
+      background: rgba(2, 6, 23, 0.6);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      padding: 26px;
+      border-radius: 20px;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.45);
     }
-    .card h3 { color: #38bdf8; margin-bottom: 10px; }
+
+    /* ===== SKILLS & PROJECTS ===== */
+    .skills,
+    .projects {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    /* ===== PROJECT CARDS ===== */
+    .project-card {
+      cursor: pointer;
+      transition: all 0.35s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 45px rgba(56,189,248,0.5);
+    }
+
+    .view-more {
+      display: inline-block;
+      margin-top: 10px;
+      font-weight: 600;
+      color: #38bdf8;
+      animation: pulse 1.5s infinite;
+    }
+
+    .project-details {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease, opacity 0.4s ease;
+      opacity: 0;
+      margin-top: 15px;
+    }
+
+    .project-card.active .project-details {
+      max-height: 600px;
+      opacity: 1;
+    }
+
+    @keyframes pulse {
+      0% { opacity: 0.6; }
+      50% { opacity: 1; }
+      100% { opacity: 0.6; }
+    }
+
+    /* ===== STAR LIST ===== */
+    .star-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .star-list li {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 8px;
+    }
+
+    .star-list li::before {
+      content: "✦";
+      position: absolute;
+      left: 0;
+      color: #38bdf8;
+      font-weight: bold;
+    }
+
+    /* ===== FOOTER ===== */
     footer {
       text-align: center;
       padding: 30px;
-      background: #020617;
-      color: #64748b;
+      background: rgba(2, 6, 23, 0.75);
+      backdrop-filter: blur(14px);
+      color: #94a3b8;
     }
-    a.btn {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 10px 22px;
-      background: #38bdf8;
-      color: #020617;
-      border-radius: 25px;
+
+    a {
+      color: #38bdf8;
       text-decoration: none;
-      font-weight: bold;
+    }
+
+    a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
+
 <body>
 
 <nav>
@@ -92,29 +232,30 @@
   <h2>Software Test Engineer | ERP & Automation</h2>
   <p>
     Software Test Engineer with 2.5 years of experience in ERP testing, API automation,
-    and third‑party integrations including E‑Invoice and E‑Way Bill modules.
+    and third-party integrations including E-Invoice and E-Way Bill modules.
   </p>
   <a class="btn" href="#contact">Contact Me</a>
 </header>
 
 <section id="about">
   <h2>About Me</h2>
-  <p>
-    I am a Software Test Engineer at Suktha Solutions, Bengaluru. I specialize in
-    manual testing, automation testing using Selenium Java, and API testing using Postman.
-    I have strong experience in ERP systems, Jasper Reports, and MySQL databases.
-  </p>
+  <div class="card">
+    <p>
+      Software Test Engineer at Suktha Solutions, Bengaluru. Specialized in
+      manual testing, Selenium Java automation, API testing using Postman,
+      ERP systems, Jasper Reports, and MySQL databases.
+    </p>
+  </div>
 </section>
 
 <section id="skills">
   <h2>Skills</h2>
-  <div class="card">
-    <p><strong>Manual Testing:</strong> Agile methodology, SDLC, STLC, Defect Life Cycle, Test Levels & Test Types</p>
-    <p><strong>Automation Testing:</strong> Selenium Java, TestNG, Regression Testing</p>
-    <p><strong>API Testing:</strong> Postman, API Flow Design, Newman Reports</p>
-    <p><strong>Databases & Reports:</strong> MySQL, Jasper Reports</p>
-    <p><strong>Tools & DevOps:</strong> Git, Maven, Jira, TestLink, Mantis, Jenkins (CI/CD fundamentals)</p>
-    <p><strong>Testing Types:</strong> Functional, Integration, System, GUI, Smoke Testing</p>
+  <div class="card skills">
+    <p><strong>Manual Testing:</strong> Agile, SDLC, STLC, Defect Life Cycle</p>
+    <p><strong>Automation:</strong> Selenium Java, TestNG, Regression</p>
+    <p><strong>API:</strong> Postman, Newman</p>
+    <p><strong>Database:</strong> MySQL, Jasper Reports</p>
+    <p><strong>Tools:</strong> Git, Maven, Jira, Jenkins</p>
   </div>
 </section>
 
@@ -127,125 +268,54 @@
       <p>Cloud-based ERP with automation & API testing</p>
       <span class="view-more">➜ Click to view details</span>
       <div class="project-details">
-  <p><strong>Role:</strong> Automation Test Engineer</p>
-  <p><strong>Key Responsibilities:</strong></p>
-  <ul class="star-list">
-    <li>End-to-end testing of ERP modules (Master, Transactions, Accounts, Reports)</li>
-    <li>API validation for E-Invoice & E-Way Bill integrations using Postman</li>
-    <li>Automation testing using Selenium Java & TestNG</li>
-    <li>Regression testing and critical defect analysis</li>
-    <li>CI execution using Jenkins pipelines</li>
-  </ul>
-  <p><strong>Skills Used:</strong> Selenium Java, Postman, TestNG, Jenkins, MySQL</p>
-</div>
+        <ul class="star-list">
+          <li>ERP module testing (Master, Transactions, Reports)</li>
+          <li>E-Invoice & E-Way Bill API validation</li>
+          <li>Selenium Java & TestNG automation</li>
+          <li>Regression & Jenkins CI</li>
+        </ul>
+      </div>
     </div>
 
     <div class="card project-card" onclick="toggleProject(this)">
       <h3>Manufacturing ERP – Mahaveer</h3>
-      <p>Warehouse & inventory testing with reports</p>
+      <p>Warehouse & inventory testing</p>
       <span class="view-more">➜ Click to view details</span>
       <div class="project-details">
-  <p><strong>Role:</strong> Automation Test Engineer</p>
-  <p><strong>Key Responsibilities:</strong></p>
-  <ul class="star-list">
-    <li>End-to-end testing of ERP modules (Master, Transactions, Accounts, Reports)</li>
-    <li>API validation for E-Invoice & E-Way Bill integrations using Postman</li>
-    <li>Automation testing using Selenium Java & TestNG</li>
-    <li>Regression testing and critical defect analysis</li>
-    <li>CI execution using Jenkins pipelines</li>
-  </ul>
-  <p><strong>Skills Used:</strong> Selenium Java, Postman, TestNG, Jenkins, MySQL</p>
-</div>
-    </div>
-
-    <div class="card project-card" onclick="toggleProject(this)">
-      <h3>Micro ERP MYBOSS</h3>
-      <p>Database & reporting support role</p>
-      <span class="view-more">➜ Click to view details</span>
-      <div class="project-details">
-  <p><strong>Role:</strong> Automation Test Engineer</p>
-  <p><strong>Key Responsibilities:</strong></p>
-  <ul class="star-list">
-    <li>End-to-end testing of ERP modules (Master, Transactions, Accounts, Reports)</li>
-    <li>API validation for E-Invoice & E-Way Bill integrations using Postman</li>
-    <li>Automation testing using Selenium Java & TestNG</li>
-    <li>Regression testing and critical defect analysis</li>
-    <li>CI execution using Jenkins pipelines</li>
-  </ul>
-  <p><strong>Skills Used:</strong> Selenium Java, Postman, TestNG, Jenkins, MySQL</p>
-</div>
+        <ul class="star-list">
+          <li>Inventory & warehouse module testing</li>
+          <li>API integrations testing</li>
+          <li>Selenium automation</li>
+        </ul>
+      </div>
     </div>
 
   </div>
 </section>
 
-<style>
-.project-card { cursor:pointer; transition: all 0.3s ease; position: relative; }
-.project-card:hover { transform: translateY(-6px); box-shadow: 0 12px 30px rgba(56,189,248,0.35); }
-.view-more {
-  display: inline-block;
-  margin-top: 10px;
-  font-weight: 600;
-  color: #38bdf8;
-  animation: pulse 1.5s infinite;
-}
-.project-details {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.5s ease, opacity 0.4s ease;
-  opacity: 0;
-  margin-top: 15px;
-}
-.project-card.active .project-details {
-  max-height: 500px;
-  opacity: 1;
-}
-@keyframes pulse {
-  0% { opacity: 0.6; }
-  50% { opacity: 1; }
-  100% { opacity: 0.6; }
-}
-
-/* Star bullet list for responsibilities */
-.star-list {
-  list-style: none;
-  padding-left: 0;
-}
-.star-list li {
-  position: relative;
-  padding-left: 20px;
-  margin-bottom: 8px;
-}
-.star-list li::before {
-  content: "*";
-  position: absolute;
-  left: 0;
-  color: #38bdf8;
-  font-weight: bold;
-}
-  50% { opacity: 1; }
-  100% { opacity: 0.6; }
-}
-</style>
-
-<script>
-function toggleProject(card) {
-  card.classList.toggle('active');
-}
-</script>
-
 <section id="contact">
   <h2>Contact</h2>
-  <p>Email: <a href="mailto:srikanthjujare.2001@gmail.com" target="_blank">srikanthjujare.2001@gmail.com</a></p>
-  <p>Phone: +91 7095006116</p>
-  <p>
-    LinkedIn: <a href="https://www.linkedin.com/in/srikanth-jujare-78733423b/" target="_blank">View Profile</a>
-  </p>
+  <div class="card">
+    <p>Email: <a href="mailto:srikanthjujare.2001@gmail.com">srikanthjujare.2001@gmail.com</a></p>
+    <p>Phone: +91 7095006116</p>
+    <p>
+      LinkedIn:
+      <a href="https://www.linkedin.com/in/srikanth-jujare-78733423b/" target="_blank">
+        View Profile
+      </a>
+    </p>
+  </div>
 </section>
 
 <footer>
-  © 2025 Srikanth | Dark Portfolio
+  © 2025 Srikanth | Glass Portfolio
 </footer>
+
+<script>
+  function toggleProject(card) {
+    card.classList.toggle('active');
+  }
+</script>
 
 </body>
 </html>
