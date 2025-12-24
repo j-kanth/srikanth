@@ -4,220 +4,91 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Srikanth | Portfolio</title>
-
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Segoe UI', Tahoma, sans-serif;
       background: linear-gradient(135deg, #020617, #0f172a, #020617);
-      background-attachment: fixed;
-      color: #e5e7eb;
-      line-height: 1.6;
+      color: #e5e7eb; line-height: 1.6;
     }
-
-    /* ===== PREMIUM GLASS NAVBAR ===== */
     nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: linear-gradient(
-        135deg,
-        rgba(56, 189, 248, 0.22),
-        rgba(2, 6, 23, 0.65)
-      );
-      backdrop-filter: blur(22px) saturate(160%);
-      -webkit-backdrop-filter: blur(22px) saturate(160%);
-      display: flex;
-      justify-content: center;
-      gap: 28px;
-      padding: 14px 0;
-      z-index: 10;
-      border-bottom: 1px solid rgba(56, 189, 248, 0.45);
-      box-shadow: 0 10px 35px rgba(56,189,248,0.25);
+      position: fixed; top: 0; width: 100%;
+      display: flex; justify-content: center; gap: 28px;
+      padding: 14px 0; z-index: 10;
+      background: rgba(2,6,23,0.75); backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(56,189,248,0.4);
     }
-
-    nav a {
-      color: #e0f2fe;
-      text-decoration: none;
-      font-weight: 600;
-      letter-spacing: 0.4px;
-      padding: 6px 16px;
-      border-radius: 16px;
-      transition: all 0.3s ease;
-    }
-
-    nav a:hover {
-      color: #020617;
-      background: rgba(56, 189, 248, 0.95);
-      box-shadow: 0 0 18px rgba(56,189,248,0.8);
-    }
-
-    /* ===== HERO ===== */
+    nav a { color: #e0f2fe; text-decoration: none; font-weight: 600; }
     header {
-      min-height: 85vh;
+      min-height: 75vh; /* reduced height */
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      background:
-        radial-gradient(circle at top, rgba(56,189,248,0.18), transparent 60%),
-        linear-gradient(180deg, #020617, #0f172a);
       padding: 0 20px;
     }
-
-    header h1 {
-      font-size: 48px;
-      color: #38bdf8;
+    header h1 { font-size: 48px; color: #38bdf8; }
+    header h2 { font-size: 24px; color: #7dd3fc; margin-top: 10px; }
+    header p { max-width: 600px; margin-top: 15px; color: #cbd5f5; }
+    .btn {
+      margin-top: 22px; padding: 12px 28px;
+      background: #38bdf8; color: #020617;
+      border-radius: 30px; font-weight: bold; text-decoration: none;
     }
-
-    header h2 {
-      font-size: 22px;
-      margin-top: 10px;
-    }
-
-    header p {
-      max-width: 600px;
-      margin-top: 15px;
-      color: #cbd5f5;
-    }
-
-    a.btn {
-      display: inline-block;
-      margin-top: 22px;
-      padding: 12px 28px;
-      background: rgba(56, 189, 248, 0.9);
-      color: #020617;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: bold;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 8px 25px rgba(56,189,248,0.45);
-      transition: all 0.3s ease;
-    }
-
-    a.btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 35px rgba(56,189,248,0.65);
-    }
-
-    /* ===== SECTIONS ===== */
     section {
       max-width: 1000px;
       margin: auto;
-      padding: 70px 20px;
+      padding: 45px 20px; /* reduced vertical gap */
     }
-
     section h2 {
-      font-size: 28px;
-      margin-bottom: 22px;
-      border-left: 4px solid #38bdf8;
-      padding-left: 12px;
+      font-size: 28px; margin-bottom: 22px;
+      border-left: 4px solid #38bdf8; padding-left: 12px;
     }
-
-    /* ===== GLASS CARD ===== */
     .card {
-      background: rgba(2, 6, 23, 0.6);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      padding: 26px;
-      border-radius: 20px;
-      border: 1px solid rgba(56, 189, 248, 0.3);
-      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.45);
+      background: rgba(2,6,23,0.6); padding: 26px;
+      border-radius: 20px; border: 1px solid rgba(56,189,248,0.3);
+      margin-bottom: 22px;
     }
-
-    /* ===== SKILLS & PROJECTS ===== */
-    .skills,
-    .projects {
-      display: flex;
-      flex-direction: column;
-      gap: 22px;
-    }
-
-    /* ===== PROJECT CARDS ===== */
-    .project-card {
-      cursor: pointer;
-      transition: all 0.35s ease;
-    }
-
-    .project-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 25px 45px rgba(56,189,248,0.5);
-    }
-
+    .project-card { cursor: pointer; transition: 0.3s; }
+    .project-card:hover { transform: translateY(-5px); }
     .view-more {
-      display: inline-block;
-      margin-top: 10px;
+      color: #38bdf8;
       font-weight: 600;
-      color: #38bdf8;
-      animation: pulse 1.5s infinite;
+      margin-top: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
     }
-
+    .project-card.active .view-more {
+      color: #fca5a5;
+    }
     .project-details {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.5s ease, opacity 0.4s ease;
-      opacity: 0;
-      margin-top: 15px;
+      max-height: 0; overflow: hidden; opacity: 0;
+      transition: 0.4s; margin-top: 15px;
     }
-
-    .project-card.active .project-details {
-      max-height: 600px;
-      opacity: 1;
-    }
-
-    @keyframes pulse {
-      0% { opacity: 0.6; }
-      50% { opacity: 1; }
-      100% { opacity: 0.6; }
-    }
-
-    /* ===== STAR LIST ===== */
-    .star-list {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    .star-list li {
-      position: relative;
-      padding-left: 20px;
-      margin-bottom: 8px;
-    }
-
-    .star-list li::before {
-      content: "✦";
-      position: absolute;
-      left: 0;
-      color: #38bdf8;
-      font-weight: bold;
-    }
-
-    /* ===== FOOTER ===== */
-    footer {
-      text-align: center;
-      padding: 30px;
-      background: rgba(2, 6, 23, 0.75);
-      backdrop-filter: blur(14px);
-      color: #94a3b8;
-    }
-
-    a {
-      color: #38bdf8;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
+    .project-card.active .project-details { max-height: 600px; opacity: 1; }
+    .star-list { list-style: none; }
+    .star-list li { padding-left: 20px; margin-bottom: 8px; position: relative; }
+    .star-list li::before { content: "✦"; position: absolute; left: 0; color: #38bdf8; }
+    footer { text-align: center; padding: 30px; color: #94a3b8; }
   </style>
 </head>
-
 <body>
+
+<style>
+  /* scroll animation */
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+  }
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
 
 <nav>
   <a href="#home">Home</a>
@@ -227,95 +98,143 @@
   <a href="#contact">Contact</a>
 </nav>
 
-<header id="home">
+<header id="home" class="reveal">
   <h1>Jujaray Srikanth</h1>
   <h2>Software Test Engineer | ERP & Automation</h2>
-  <p>
-    Software Test Engineer with 2.5 years of experience in ERP testing, API automation,
-    and third-party integrations including E-Invoice and E-Way Bill modules.
-  </p>
+  <p>Software Test Engineer with 2.5 years of experience in ERP testing, automation and API validation.</p>
   <a class="btn" href="#contact">Contact Me</a>
 </header>
 
-<section id="about">
+<section id="about" class="reveal">
   <h2>About Me</h2>
   <div class="card">
     <p>
-      Software Test Engineer at Suktha Solutions, Bengaluru. Specialized in
-      manual testing, Selenium Java automation, API testing using Postman,
-      ERP systems, Jasper Reports, and MySQL databases.
+      I am a Software Test Engineer working at Suktha Solutions, Bengaluru, with 2.5 years of hands-on
+      experience in testing ERP applications. My expertise includes manual and automation testing,
+      API validation, and database testing across complex business workflows.
+    </p>
+    <p style="margin-top:12px;">
+      I have worked extensively on third-party integrations such as E-Invoice and E-Way Bill modules,
+      performing end-to-end testing from login to transactions, payments, and reporting. I am skilled
+      in Selenium Java, TestNG, Postman, Newman, MySQL, and Jasper Reports, and I actively participate
+      in client support, requirements analysis, and business discussions to ensure high-quality
+      deliverables.
     </p>
   </div>
 </section>
 
-<section id="skills">
+<section id="skills" class="reveal">
   <h2>Skills</h2>
-  <div class="card skills">
-    <p><strong>Manual Testing:</strong> Agile, SDLC, STLC, Defect Life Cycle</p>
-    <p><strong>Automation:</strong> Selenium Java, TestNG, Regression</p>
-    <p><strong>API:</strong> Postman, Newman</p>
-    <p><strong>Database:</strong> MySQL, Jasper Reports</p>
-    <p><strong>Tools:</strong> Git, Maven, Jira, Jenkins</p>
+  <div class="card">
+    <ul class="star-list">
+      <li><strong>Manual Testing:</strong> SDLC, STLC, Defect Life Cycle, Test Levels, Test Types</li>
+      <li><strong>Automation:</strong> Selenium Java, TestNG, Regression Testing</li>
+      <li><strong>API Testing:</strong> Postman, Newman, API Flow Design</li>
+      <li><strong>Database & Reports:</strong> MySQL, Jasper Reports</li>
+      <li><strong>Testing Types:</strong> Functional, Integration, System, Smoke, GUI</li>
+      <li><strong>Tools:</strong> Git, Maven, Jira, TestLink, Mantis, Jenkins (Basics)</li>
+    </ul>
   </div>
 </section>
 
-<section id="projects">
+<section id="projects" class="reveal">
   <h2>Projects</h2>
-  <div class="projects">
 
-    <div class="card project-card" onclick="toggleProject(this)">
-      <h3>Micro ERP – Suktha Solutions</h3>
-      <p>Cloud-based ERP with automation & API testing</p>
-      <span class="view-more">➜ Click to view details</span>
-      <div class="project-details">
-        <ul class="star-list">
-          <li>ERP module testing (Master, Transactions, Reports)</li>
-          <li>E-Invoice & E-Way Bill API validation</li>
-          <li>Selenium Java & TestNG automation</li>
-          <li>Regression & Jenkins CI</li>
-        </ul>
-      </div>
+  <!-- Project 1 -->
+  <div class="card project-card" onclick="toggleProject(this)">
+    <h3>Micro ERP – Suktha Solutions</h3>
+    <p>Cloud-based ERP | Automation & API Testing</p>
+    <span class="view-more">➜ Click to view details</span>
+    <div class="project-details">
+      <ul class="star-list">
+        <li>End-to-end ERP testing from login to transactions, payments & reports</li>
+        <li>Automation testing using Selenium Java & TestNG</li>
+        <li>API validation using Postman & Newman (E-Invoice & E-Way Bill)</li>
+        <li>Regression testing and Jenkins CI execution</li>
+        <li>Requirements analysis, critical bug identification & reporting</li>
+        <li>Handled client support calls and production issues</li>
+      </ul>
     </div>
-
-    <div class="card project-card" onclick="toggleProject(this)">
-      <h3>Manufacturing ERP – Mahaveer</h3>
-      <p>Warehouse & inventory testing</p>
-      <span class="view-more">➜ Click to view details</span>
-      <div class="project-details">
-        <ul class="star-list">
-          <li>Inventory & warehouse module testing</li>
-          <li>API integrations testing</li>
-          <li>Selenium automation</li>
-        </ul>
-      </div>
-    </div>
-
   </div>
+
+  <!-- Project 2 -->
+  <div class="card project-card" onclick="toggleProject(this)">
+    <h3>Manufacturing ERP – Mahaveer</h3>
+    <p>Inventory, Warehouse & Reporting System</p>
+    <span class="view-more">➜ Click to view details</span>
+    <div class="project-details">
+      <ul class="star-list">
+        <li>Warehouse & inventory module testing with material mapping</li>
+        <li>Testing product master, transactions, payables & receivables</li>
+        <li>MySQL database validation and data consistency checks</li>
+        <li>Jasper Reports designing and testing</li>
+        <li>Writing test cases, execution and regression testing</li>
+        <li>Handled client support calls and issue explanation</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Project 3 -->
+  <div class="card project-card" onclick="toggleProject(this)">
+    <h3>Micro ERP – MYBOSS (Uthkrushta Technologies)</h3>
+    <p>ERP Application Support & Database Handling</p>
+    <span class="view-more">➜ Click to view details</span>
+    <div class="project-details">
+      <ul class="star-list">
+        <li>Provided ERP production support and issue resolution</li>
+        <li>Worked with MySQL, MSSQL & MS Access databases</li>
+        <li>Handled ODBC connections and data troubleshooting</li>
+        <li>Supported Crystal Reports generation and fixes</li>
+      </ul>
+    </div>
+  </div>
+
 </section>
 
-<section id="contact">
+<section id="contact" class="reveal">
   <h2>Contact</h2>
   <div class="card">
     <p>Email: <a href="mailto:srikanthjujare.2001@gmail.com">srikanthjujare.2001@gmail.com</a></p>
     <p>Phone: +91 7095006116</p>
-    <p>
-      LinkedIn:
-      <a href="https://www.linkedin.com/in/srikanth-jujare-78733423b/" target="_blank">
-        View Profile
-      </a>
-    </p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/srikanth-jujare-78733423b/" target="_blank">View Profile</a></p>
   </div>
 </section>
 
-<footer>
-  © 2025 Srikanth | Glass Portfolio
-</footer>
-
 <script>
   function toggleProject(card) {
-    card.classList.toggle('active');
+    const isActive = card.classList.contains('active');
+
+    // close all other cards
+    document.querySelectorAll('.project-card').forEach(c => {
+      c.classList.remove('active');
+      const label = c.querySelector('.view-more');
+      if (label) label.innerHTML = '➜ Click to view details';
+    });
+
+    // toggle current card
+    if (!isActive) {
+      card.classList.add('active');
+      const label = card.querySelector('.view-more');
+      if (label) label.innerHTML = '⬆ Minimize details';
+    }
   }
+
+  // scroll reveal animation
+  const reveals = document.querySelectorAll('.reveal');
+  function revealOnScroll() {
+    const windowHeight = window.innerHeight;
+    reveals.forEach(el => {
+      const top = el.getBoundingClientRect().top;
+      if (top < windowHeight - 100) {
+        el.classList.add('active');
+      }
+    });
+  }
+  window.addEventListener('scroll', revealOnScroll);
+  revealOnScroll();
 </script>
+
+<footer>© 2025 Srikanth | Portfolio Preview</footer>
 
 </body>
 </html>
